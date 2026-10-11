@@ -11,13 +11,13 @@ import {
   generate30DayForecast,
   simulateDecision,
   TOTAL_BUDGET
-} from './financialEngine';
+} from '../src/utils/financialEngine';
 import {
   INITIAL_COMMITMENTS,
   INITIAL_SUBSCRIPTIONS,
   INITIAL_SAVINGS_GOALS,
   INITIAL_TRANSACTIONS
-} from '../data/initialData';
+} from '../src/data/initialData';
 
 describe('Financial Engine Core Calculation Tests', () => {
   it('correctly calculates safe daily allowance accounting for commitments and subscriptions', () => {

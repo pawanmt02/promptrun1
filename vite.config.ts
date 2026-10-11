@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [react(), tailwindcss()],
   build: {
     rollupOptions: {
@@ -22,5 +23,11 @@ export default defineConfig({
       }
     },
     chunkSizeWarningLimit: 600
+  },
+  // @ts-expect-error vitest config
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./tests/setup.ts']
   }
 })
