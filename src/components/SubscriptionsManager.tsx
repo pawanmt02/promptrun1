@@ -131,11 +131,12 @@ export const SubscriptionsManager: React.FC = () => {
               {/* Pause / Resume Button */}
               <button
                 onClick={() => toggleSubscription(sub.id)}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 transition-all ${
+                className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 transition-all focus-ring ${
                   sub.isActive
                     ? 'bg-slate-800 hover:bg-rose-950 hover:text-rose-300 hover:border-rose-800/60 border border-slate-700 text-slate-300'
                     : 'bg-emerald-600/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30'
                 }`}
+                aria-label={`${sub.isActive ? 'Pause' : 'Resume'} ${sub.name} subscription`}
                 title={sub.isActive ? 'Pause subscription to save cash' : 'Resume subscription'}
               >
                 {sub.isActive ? (

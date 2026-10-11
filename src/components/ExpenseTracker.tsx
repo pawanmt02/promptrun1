@@ -127,33 +127,43 @@ export const ExpenseTracker: React.FC = () => {
       </div>
 
       {/* Manual Expense Form */}
-      <form onSubmit={handleSubmit} className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 mb-5 space-y-3">
+      <form onSubmit={handleSubmit} className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 mb-5 space-y-3" aria-label="Quick Expense Logging Form">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5">
           <div className="col-span-1 md:col-span-2">
+            <label htmlFor="expense-title-input" className="sr-only">Expense Title</label>
             <input
+              id="expense-title-input"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Expense title (e.g. Cutting chai, Auto fare)"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+              aria-label="Expense title"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-400 focus-ring"
             />
           </div>
 
           <div>
+            <label htmlFor="expense-amount-input" className="sr-only">Expense Amount</label>
             <input
+              id="expense-amount-input"
               type="number"
+              min="1"
               value={amount}
               onChange={(e) => setAmount(e.target.value === '' ? '' : Number(e.target.value))}
               placeholder="Amount (₹)"
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white font-mono placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+              aria-label="Expense amount in Rupees"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white font-mono placeholder-slate-400 focus-ring"
             />
           </div>
 
           <div>
+            <label htmlFor="expense-category-select" className="sr-only">Expense Category</label>
             <select
+              id="expense-category-select"
               value={category}
               onChange={(e) => setCategory(e.target.value as Category)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2 text-xs text-white focus:outline-none focus:border-indigo-500 cursor-pointer"
+              aria-label="Select Expense Category"
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl px-2.5 py-2 text-xs text-white focus-ring cursor-pointer"
             >
               <option value="Food & Chai">Food & Chai</option>
               <option value="Commute & Travel">Commute & Travel</option>

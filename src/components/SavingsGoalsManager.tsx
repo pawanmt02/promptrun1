@@ -137,7 +137,8 @@ export const SavingsGoalsManager: React.FC = () => {
                     {goal.savedAmount > 0 && (
                       <button
                         onClick={() => allocateToGoal(goal.id, -100)}
-                        className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors"
+                        className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors focus-ring"
+                        aria-label={`Withdraw ₹100 from ${goal.title}`}
                         title="Withdraw ₹100 to liquid balance"
                       >
                         <Minus className="w-3.5 h-3.5" />
@@ -147,7 +148,8 @@ export const SavingsGoalsManager: React.FC = () => {
                     <button
                       onClick={() => allocateToGoal(goal.id, 100)}
                       disabled={liquidBalance < 100 || isCompleted}
-                      className="px-2 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-[11px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                      className="px-2 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-[11px] font-semibold disabled:opacity-40 disabled:cursor-not-allowed transition-all focus-ring"
+                      aria-label={`Lock ₹100 into ${goal.title}`}
                       title="Lock ₹100 into this goal"
                     >
                       +₹100
@@ -156,7 +158,8 @@ export const SavingsGoalsManager: React.FC = () => {
                     <button
                       onClick={() => allocateToGoal(goal.id, 250)}
                       disabled={liquidBalance < 250 || isCompleted}
-                      className="px-2 py-1 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/40 text-emerald-200 border border-emerald-500/50 text-[11px] font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                      className="px-2 py-1 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/40 text-emerald-200 border border-emerald-500/50 text-[11px] font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all focus-ring"
+                      aria-label={`Lock ₹250 into ${goal.title}`}
                       title="Lock ₹250 into this goal"
                     >
                       +₹250

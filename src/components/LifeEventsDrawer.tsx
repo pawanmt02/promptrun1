@@ -19,12 +19,18 @@ export const LifeEventsDrawer: React.FC = () => {
   const isWindfall = activeLifeEvent.type === 'Windfall';
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+    <div
+      role="alertdialog"
+      aria-modal="true"
+      aria-labelledby="life-event-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in"
+    >
       <div className="relative w-full max-w-xl glass-panel rounded-3xl border border-amber-500/40 p-5 sm:p-6 shadow-2xl shadow-amber-500/10 text-slate-100 animate-slide-up">
         {/* Dismiss Button */}
         <button
           onClick={dismissLifeEvent}
-          className="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors"
+          className="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors focus-ring"
+          aria-label="Dismiss life event modal"
           title="Dismiss Event"
         >
           <X className="w-4 h-4" />
@@ -55,7 +61,7 @@ export const LifeEventsDrawer: React.FC = () => {
                 {activeLifeEvent.type}
               </span>
             </div>
-            <h2 className="text-lg font-extrabold text-white tracking-tight mt-0.5">
+            <h2 id="life-event-title" className="text-lg font-extrabold text-white tracking-tight mt-0.5">
               {activeLifeEvent.title}
             </h2>
           </div>

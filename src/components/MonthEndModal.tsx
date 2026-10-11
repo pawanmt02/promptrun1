@@ -47,7 +47,12 @@ Built with PromptRun 2026`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in overflow-y-auto">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="month-end-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in overflow-y-auto"
+    >
       <div className="relative w-full max-w-lg glass-panel rounded-3xl border border-indigo-500/40 p-5 sm:p-7 shadow-2xl shadow-indigo-500/20 text-slate-100 my-auto animate-slide-up">
         {/* Banner */}
         <div className="text-center mb-5">
@@ -58,6 +63,10 @@ Built with PromptRun 2026`;
               <XCircle className="w-8 h-8 text-rose-200" />
             )}
           </div>
+
+          <h2 id="month-end-title" className="text-2xl font-extrabold text-white tracking-tight">
+            {isSurvived ? '🎉 Month Conquered!' : '💀 Out of Cash!'}
+          </h2>
 
           <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
             Month Evaluation Complete

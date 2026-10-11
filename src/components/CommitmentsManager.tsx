@@ -139,7 +139,8 @@ export const CommitmentsManager: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => payCommitment(comm.id)}
-                    className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white text-xs font-bold shadow-md shadow-amber-600/20 active:scale-95 transition-all flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white text-xs font-bold shadow-md shadow-amber-600/20 active:scale-95 transition-all flex items-center gap-1.5 focus-ring"
+                    aria-label={`Pay ${comm.title} commitment for ₹${comm.amount}`}
                     title={`Pay ₹${comm.amount} now`}
                   >
                     <CreditCard className="w-3.5 h-3.5" />

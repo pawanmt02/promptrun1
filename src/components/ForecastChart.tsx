@@ -135,10 +135,14 @@ export const ForecastChart: React.FC = () => {
       {/* SVG Interactive Chart */}
       <div className="relative w-full aspect-[21/9] sm:aspect-[24/9] bg-slate-950/70 rounded-2xl border border-slate-900 overflow-hidden p-2">
         <svg
+          role="img"
+          aria-label="Interactive 30-Day Cashflow Forecast Chart"
           viewBox={`0 0 ${width} ${height}`}
           className="w-full h-full cursor-crosshair overflow-visible select-none"
           onMouseLeave={() => setHoveredDay(null)}
         >
+          <title>30-Day Cashflow and Balance Trajectory Projection</title>
+          <desc>Interactive chart showing current liquid balance, commitments, and forecasted balance across 30 days under conservative, current, and impulsive spending scenarios.</desc>
           <defs>
             <linearGradient id="actualGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#6366f1" stopOpacity="0.4" />

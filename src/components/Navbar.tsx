@@ -109,7 +109,8 @@ export const Navbar: React.FC = () => {
 
           <button
             onClick={advanceDay}
-            className="flex items-center gap-1 px-3 py-1 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/20 active:scale-95 transition-all"
+            className="flex items-center gap-1 px-3 py-1 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/20 active:scale-95 transition-all focus-ring"
+            aria-label="Advance timeline to next day"
             title="Advance timeline to next day"
           >
             <span>+ Day</span>
@@ -123,7 +124,8 @@ export const Navbar: React.FC = () => {
           <select
             value={currentPresetId}
             onChange={(e) => loadPreset(e.target.value)}
-            className="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-indigo-500 cursor-pointer"
+            className="bg-slate-900 border border-slate-800 text-slate-300 text-xs rounded-xl px-2.5 py-1.5 focus-ring cursor-pointer"
+            aria-label="Select simulation scenario preset"
             title="Load realistic scenario presets"
           >
             {SCENARIO_PRESETS.map((p) => (
@@ -136,7 +138,8 @@ export const Navbar: React.FC = () => {
           {/* Life Event Trigger (Tester) */}
           <button
             onClick={triggerRandomEvent}
-            className="hidden lg:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 text-amber-400 hover:text-amber-300 text-xs font-medium transition-colors"
+            className="hidden lg:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 text-amber-400 hover:text-amber-300 text-xs font-medium transition-colors focus-ring"
+            aria-label="Trigger unexpected life event"
             title="Trigger an unexpected life event"
           >
             <Sparkles className="w-3.5 h-3.5" />
@@ -146,11 +149,12 @@ export const Navbar: React.FC = () => {
           {/* Broke Mode Toggle */}
           <button
             onClick={toggleBrokeMode}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all ${
+            className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold border transition-all focus-ring ${
               isBrokeMode
                 ? 'bg-rose-950/60 border-rose-500 text-rose-300 shadow-sm shadow-rose-900/50'
                 : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
             }`}
+            aria-label="Toggle broke mode protocol"
             title="Toggle Broke / Survival Mode protocol"
           >
             <ShieldAlert className={`w-3.5 h-3.5 ${isBrokeMode ? 'text-rose-400 animate-pulse' : ''}`} />
@@ -160,7 +164,8 @@ export const Navbar: React.FC = () => {
           {/* What-If Simulator Trigger */}
           <button
             onClick={() => setIsSimulatorOpen(true)}
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-md shadow-purple-600/25 active:scale-95 transition-all"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-md shadow-purple-600/25 active:scale-95 transition-all focus-ring"
+            aria-label="Open what-if decision simulator"
             title="Open What-If Decision Sandbox"
           >
             <Wand2 className="w-3.5 h-3.5 text-purple-200" />

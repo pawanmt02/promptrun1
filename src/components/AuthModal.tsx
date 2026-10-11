@@ -38,13 +38,19 @@ export const AuthModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in overflow-y-auto">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-modal-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fade-in overflow-y-auto"
+    >
       <div className="relative w-full max-w-lg glass-panel rounded-3xl border border-indigo-500/40 p-5 sm:p-7 shadow-2xl shadow-indigo-500/20 text-slate-100 my-auto animate-slide-up">
         {/* Close Button (if already logged in) */}
         {isAuthenticated && (
           <button
             onClick={closeAuthModal}
-            className="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors"
+            className="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors focus-ring"
+            aria-label="Close authentication modal"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -58,9 +64,9 @@ export const AuthModal: React.FC = () => {
           </div>
 
           <div className="flex items-center justify-center gap-1.5">
-            <span className="font-extrabold text-xl text-white tracking-tight">
+            <h2 id="auth-modal-title" className="font-extrabold text-xl text-white tracking-tight">
               PAISA<span className="text-indigo-400">.OS</span>
-            </span>
+            </h2>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
               Auth Gateway
             </span>
@@ -147,57 +153,60 @@ export const AuthModal: React.FC = () => {
           /* Tab 2: Custom Sign In Form */
           <form onSubmit={handleCustomSubmit} className="space-y-3 mb-5">
             <div>
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label htmlFor="auth-custom-name" className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
                 Your Name
               </label>
               <div className="relative">
                 <User className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
                 <input
+                  id="auth-custom-name"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Aryan Verma"
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-600 focus-ring"
                 />
               </div>
             </div>
 
             <div>
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label htmlFor="auth-custom-email" className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
                 Email Address
               </label>
               <div className="relative">
                 <Mail className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
                 <input
+                  id="auth-custom-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="e.g. aryan@college.edu"
                   required
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-600 focus-ring"
                 />
               </div>
             </div>
 
             <div>
-              <label className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
+              <label htmlFor="auth-custom-city" className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">
                 College Campus / City
               </label>
               <div className="relative">
                 <MapPin className="w-4 h-4 text-slate-500 absolute left-3 top-2.5" />
                 <input
+                  id="auth-custom-city"
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   placeholder="e.g. BITS Pilani / Hyderabad"
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-600 focus-ring"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-1.5 transition-all active:scale-95"
+              className="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-1.5 transition-all active:scale-95 focus-ring"
             >
               <LogIn className="w-4 h-4" />
               <span>Sign In & Start Simulation</span>

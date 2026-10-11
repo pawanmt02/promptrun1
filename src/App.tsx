@@ -26,7 +26,7 @@ function MainApp() {
       <BrokeModeBanner />
 
       {/* Main Content Dashboard */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-6">
+      <main id="main-content" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7 space-y-6">
         {/* 1. Hero KPI Stat Cards */}
         <StatsOverview />
 
